@@ -3,12 +3,17 @@
     padding-bottom: 1rem;
 }
 
-#mondayUpper, #mondayDown, #tuesday {
+#mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown {
     justify-content: space-between;
     padding: 1rem;
     margin: 1rem;
-    text-align: center;
     border-radius: 1rem;
+    text-align: center;
+}
+
+.lesson-card {
+    width: 300px;
+    height: auto;
 }
 
 .time {
@@ -17,7 +22,12 @@
 }
 
 @media(max-width:425px) {
-    #mondayUpper, #mondayDown, #tuesday {
+    #mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown {
         flex-direction: column;
+    }
+
+    .lesson-card {
+        width: auto;
+        height: auto;
     }
 }
