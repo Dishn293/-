@@ -1,0 +1,23 @@
+#week {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+#mondayUpper, #mondayDown, #tuesday {
+    justify-content: space-between;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.time {
+    background-color: rgb(124, 124, 124);
+    border-radius: 1rem;
+}
+
+@media(max-width:425px) {
+    #mondayUpper, #mondayDown, #tuesday {
+        flex-direction: column;
+    }
+}
