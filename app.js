@@ -1,3 +1,4 @@
+// константы дни недель
 const mondayUpper = document.getElementById('mondayUpper')
 const mondayDown = document.getElementById('mondayDown')
 
@@ -18,13 +19,12 @@ const hours = document.getElementById('hours')
 const minutes = document.getElementById('minutes')
 
 const now = new Date()
+const valueWeek = now.getDay()
 
 let isUpper = true
 
-// заметил интересный баг, когда часто обновляешь не доконца прогруженную страницу, то
-// датчик недель ломается и показывается ложная неделя, но легко исправляется той же перезагрузкой страницы
-function getWeek(date) {
-    if (now%7 === 0) {
+function getWeek() {
+    if (now.getDate()%7 === 0) {
         week.textContent = 'Текущая неделя: верхняя'
         return isUpper = true
     }
@@ -138,3 +138,75 @@ setInterval(() => {
         minutes.textContent = remainM
     }
 }, 1000);
+
+const mondayW = 1
+const tuesdayW = 2
+const wednesdayW = 3
+const thursdayW = 4
+const fridayW = 5
+
+function changeWeek() {
+if(valueWeek === mondayW) {
+    if(isUpper) {
+        mondayUpper.classList.replace('bg-success', 'bg-danger')
+        mondayUpper.classList.remove('opacity-50')
+    }
+    else {
+        mondayDown.classList.replace('bg-success', 'bg-danger')
+        mondayDown.classList.remove('opacity-50')
+    }
+}
+
+else if(valueWeek === tuesdayW) {
+    if(isUpper) {
+        tuesday.classList.replace('bg-success', 'bg-danger')
+        tuesday.classList.remove('opacity-50')
+    }
+    else {
+        tuesday.classList.replace('bg-success', 'bg-danger')
+        tuesday.classList.remove('opacity-50')
+    }
+}
+
+else if(valueWeek === wednesdayW) {
+    if(isUpper) {
+        wednesdayUpper.classList.replace('bg-success', 'bg-danger')
+        wednesdayUpper.classList.remove('opacity-50')
+    }
+    else {
+        wednesdayDown.classList.replace('bg-success', 'bg-danger')
+        wednesdayDown.classList.remove('opacity-50')
+    }
+}
+
+else if(valueWeek === thursdayW) {
+    if(isUpper) {
+        thursday.classList.replace('bg-success', 'bg-danger')
+        thursday.classList.remove('opacity-50')
+    }
+    else {
+        thursday.classList.replace('bg-success', 'bg-danger')
+        thursday.classList.remove('opacity-50')
+    }
+}
+
+else if(valueWeek === fridayW) {
+    if(isUpper) {
+        fridayUpper.classList.replace('bg-success', 'bg-danger')
+        fridayUpper.classList.remove('opacity-50')
+    }
+    else {
+        fridayDown.classList.replace('bg-success', 'bg-danger')
+        fridayDown.classList.remove('opacity-50')
+    }
+}
+
+else {
+    console.log('Сегодня суббота или воскресенье')
+}
+
+}
+
+changeWeek()
+
+// добавить вывод текущего дня неделиж и проверить датчик, который выводит сколько времени осталось до пар
