@@ -3,6 +3,14 @@
     padding-bottom: 1rem;
 }
 
+.check {
+    padding-bottom: 3rem;
+}
+
+span {
+    font-size: 2rem;
+}
+
 #mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown, #thursday, #fridayUpper, #fridayDown {
     justify-content: space-between;
     padding: 1rem;
@@ -29,5 +37,9 @@
     .lesson-card {
         width: auto;
         height: auto;
+    }
+
+    span {
+        font-size: 1.5rem;
     }
 }

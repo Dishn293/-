@@ -12,6 +12,10 @@ const fridayUpper = document.getElementById('fridayUpper')
 const fridayDown = document.getElementById('fridayDown')
 
 const week = document.getElementById('week')
+const para = document.getElementById('para')
+
+const hours = document.getElementById('hours')
+const minutes = document.getElementById('minutes')
 
 const now = new Date()
 
@@ -33,6 +37,7 @@ getWeek(now)
 
 tuesday.classList.add('bg-success')
 thursday.classList.add('bg-success')
+
 
 if(isUpper === true) {
 
@@ -56,3 +61,65 @@ else {
     fridayUpper.classList.add('opacity-50')
     fridayDown.classList.add('bg-success')
 }
+
+// Счетчик часов и минут до начала пары
+// Тщательно проверить этот участок кода, так как возможны баги
+
+setInterval(() => {
+
+    let timer = new Date()
+    let currentHour = timer.getHours()
+    let currentMinute = timer.getMinutes()
+
+    if(currentHour >= 8) {
+        let remainH = 8 - currentHour
+        let remainM = 0 - currentMinute
+
+        hours.textContent = remainH + " часов "
+        minutes.textContent = remainM + " минут до начало пары"
+    }
+
+    if(currentHour >= 9) {
+        let remainH = 9 - currentHour
+        let remainM = 55 - currentMinute
+
+        hours.textContent = remainH + " часов "
+        minutes.textContent = remainM + " минут до начало пары"
+    }
+
+   if(currentHour >= 11) {
+        let remainH = 11 - currentHour
+        let remainM = 50 - currentMinute
+
+        hours.textContent = remainH + " часов "
+        minutes.textContent = remainM + " минут до начало пары"
+    }
+
+    if(currentHour >= 13) {
+        let remainH = 13 - currentHour
+        let remainM = 45 - currentMinute
+
+        hours.textContent = remainH + " часов "
+        minutes.textContent = remainM + " минут до начало пары"
+    }
+
+    if(currentHour >= 15) {
+        let remainH = 15 - currentHour
+        let remainM = 30 - currentMinute
+
+        hours.textContent = remainH + " часов "
+        minutes.textContent = remainM + " минут до начало пары"
+    }
+    
+}, 1000);
+
+
+
+// Первый пример подсчёта сколько осталось до пары
+
+// if(14 >= Number(now.getHours())) {
+//     const resH = 15 - 14
+//     const resM = 30 - Number(now.getMinutes())
+
+//     console.log(resH, resM)
+// }
