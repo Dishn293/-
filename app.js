@@ -67,50 +67,74 @@ else {
 
 setInterval(() => {
 
-    let timer = new Date()
-    let currentHour = timer.getHours()
-    let currentMinute = timer.getMinutes()
+    let timetable = new Date()
+    let currentHour = timetable.getHours()
+    let currentMinute = timetable.getMinutes()
 
-    if(currentHour >= 8) {
-        let remainH = 8 - currentHour
-        let remainM = 0 - currentMinute
+    let remainH
+    let remainM
+    let timeFound = true
 
-        hours.textContent = remainH + " часов "
-        minutes.textContent = remainM + " минут до начало пары"
+    if(currentHour < 8){
+        remainH = 8 - currentHour
+        remainM = 0 - currentMinute
+
+        hours.textContent = remainH
+        minutes.textContent = remainM
     }
 
-    if(currentHour >= 9) {
-        let remainH = 9 - currentHour
-        let remainM = 55 - currentMinute
+    else if(currentHour < 9 || (currentHour === 9 && currentMinute === 55)) {
+        remainH = 9 - currentHour
+        remainM = 55 - currentMinute
 
-        hours.textContent = remainH + " часов "
-        minutes.textContent = remainM + " минут до начало пары"
+        hours.textContent = remainH
+        minutes.textContent = remainM
     }
 
-   if(currentHour >= 11) {
-        let remainH = 11 - currentHour
-        let remainM = 50 - currentMinute
+    else if(currentHour < 11 || (currentHour === 11 && currentMinute === 50)) {
+        remainH = 11 - currentHour
+        remainM = 50 - currentMinute
 
-        hours.textContent = remainH + " часов "
-        minutes.textContent = remainM + " минут до начало пары"
+        hours.textContent = remainH
+        minutes.textContent = remainM
     }
 
-    if(currentHour >= 13) {
-        let remainH = 13 - currentHour
-        let remainM = 45 - currentMinute
+    else if(currentHour < 13 || (currentHour === 13 && currentMinute === 45)) {
+        remainH = 13 - currentHour
+        remainM = 45 - currentMinute
 
-        hours.textContent = remainH + " часов "
-        minutes.textContent = remainM + " минут до начало пары"
+        hours.textContent = remainH
+        minutes.textContent = remainM
     }
 
-    if(currentHour >= 15) {
-        let remainH = 15 - currentHour
-        let remainM = 30 - currentMinute
+    else if(currentHour < 15 || (currentHour === 15 && currentMinute === 30)) {
+        remainH = 15 - currentHour
+        remainM = 30 - currentMinute
 
-        hours.textContent = remainH + " часов "
-        minutes.textContent = remainM + " минут до начало пары"
+        hours.textContent = remainH
+        minutes.textContent = remainM
     }
-    
+
+    else {
+        hours.textContent = "Сегодня пар больше нет"
+        minutes.textContent = "🥳 Отдыхайте!"
+        timeFound = false
+    }
+
+    if(timeFound) {
+        if(remainM < 0) {
+            remainH = remainH -1
+            remainM = remainM + 60
+        }
+        
+        else if (remainM >= 60) {
+            remainH = remainH + Math.floor(remainM / 60)
+            remainM = remainM % 60
+        }
+
+        hours.textContent = remainH
+        minutes.textContent = remainM
+    }
 }, 1000);
 
 
