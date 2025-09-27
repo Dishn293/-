@@ -1,3 +1,13 @@
+nav {
+    font-size: 1.5rem;
+    background-color: rgb(46, 46, 46);
+    padding-bottom: 2rem;
+}
+
+nav a {
+    margin-right: 1rem;
+}
+
 #week {
     padding-top: 1rem;
     padding-bottom: 1rem;

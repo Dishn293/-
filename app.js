@@ -21,6 +21,8 @@ const now = new Date()
 
 let isUpper = true
 
+// заметил интересный баг, когда часто обновляешь не доконца прогруженную страницу, то
+// датчик недель ломается и показывается ложная неделя, но легко исправляется той же перезагрузкой страницы
 function getWeek(date) {
     if (now%7 === 0) {
         week.textContent = 'Текущая неделя: верхняя'
@@ -136,14 +138,3 @@ setInterval(() => {
         minutes.textContent = remainM
     }
 }, 1000);
-
-
-
-// Первый пример подсчёта сколько осталось до пары
-
-// if(14 >= Number(now.getHours())) {
-//     const resH = 15 - 14
-//     const resM = 30 - Number(now.getMinutes())
-
-//     console.log(resH, resM)
-// }

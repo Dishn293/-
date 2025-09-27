@@ -1,0 +1,61 @@
+nav {
+    font-size: 1.5rem;
+    background-color: rgb(46, 46, 46);
+    padding-bottom: 2rem;
+}
+
+nav a {
+    margin-right: 1rem;
+}
+
+.map__wrapper {
+    position: relative;
+}
+
+.map__wrapper svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.map__wrapper img{
+    width: 100%;
+    height: auto;
+}
+
+.continents {
+    fill: none;
+    stroke: black;
+    stroke-width: 3px;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.continents:hover {
+    animation: showContinent 2s linear infinite;
+}
+
+@keyframes showContinent {
+    0% {
+        stroke: black;
+    }
+    50% {
+        stroke: red;
+    }
+    100% {
+        stroke: black;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: red;
+    color: blue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
