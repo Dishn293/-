@@ -3,7 +3,7 @@
     padding-bottom: 1rem;
 }
 
-#mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown {
+#mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown, #thursday, #fridayUpper, #fridayDown {
     justify-content: space-between;
     padding: 1rem;
     margin: 1rem;
@@ -22,7 +22,7 @@
 }
 
 @media(max-width:425px) {
-    #mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown {
+    #mondayUpper, #mondayDown, #tuesday, #wednesdayUpper, #wednesdayDown, #thursday, #fridayUpper, #fridayDown {
         flex-direction: column;
     }
 

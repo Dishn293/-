@@ -6,6 +6,11 @@ const tuesday = document.getElementById('tuesday')
 const wednesdayUpper = document.getElementById('wednesdayUpper')
 const wednesdayDown = document.getElementById('wednesdayDown')
 
+const thursday = document.getElementById('thursday')
+
+const fridayUpper = document.getElementById('fridayUpper')
+const fridayDown = document.getElementById('fridayDown')
+
 const week = document.getElementById('week')
 
 const now = new Date()
@@ -27,6 +32,7 @@ function getWeek(date) {
 getWeek(now)
 
 tuesday.classList.add('bg-success')
+thursday.classList.add('bg-success')
 
 if(isUpper === true) {
 
@@ -35,6 +41,9 @@ if(isUpper === true) {
     
     wednesdayUpper.classList.add('bg-success')
     wednesdayDown.classList.add('opacity-50')
+
+    fridayUpper.classList.add('bg-success')
+    fridayDown.classList.add('opacity-50')
 }
 else {
 
@@ -43,4 +52,7 @@ else {
     
     wednesdayUpper.classList.add('opacity-50')
     wednesdayDown.classList.add('bg-success')
+
+    fridayUpper.classList.add('opacity-50')
+    fridayDown.classList.add('bg-success')
 }
