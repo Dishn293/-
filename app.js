@@ -1,4 +1,4 @@
-// константы дни недель
+// Дни недель
 const mondayUpper = document.getElementById('mondayUpper')
 const mondayDown = document.getElementById('mondayDown')
 
@@ -12,35 +12,112 @@ const thursday = document.getElementById('thursday')
 const fridayUpper = document.getElementById('fridayUpper')
 const fridayDown = document.getElementById('fridayDown')
 
+// Для изменения текста
 const week = document.getElementById('week')
-const para = document.getElementById('para')
+// const para = document.getElementById('para')
+const text = document.getElementById('text')
 
 const hours = document.getElementById('hours')
 const minutes = document.getElementById('minutes')
 
+// Числа дней недель
+const mondayW = 1
+const tuesdayW = 2
+const wednesdayW = 3
+const thursdayW = 4
+const fridayW = 5
+
+// Дата
 const now = new Date()
 const valueWeek = now.getDay()
-
 let isUpper = true
 
+// Для определения верхей и нижней недели
 function getWeek() {
-    if (now.getDate()%7 === 0) {
-        week.textContent = 'Текущая неделя: верхняя'
+    const startDate = new Date('2025-09-01');
+    const currentDate = new Date();
+    
+    const diffTime = currentDate - startDate;
+
+    const diffWeeks = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 7));
+    
+    if(diffWeeks % 2 === 0) {
         return isUpper = true
     }
-    
-    else {
-        week.textContent = 'Текущая неделя: нижняя'
+    else{
         return isUpper = false
     }
 }
+
+// Выводит текущий день недели и какая текущая неделя(верхняя или нижняя)
+function ShowWeek() {
+    switch(valueWeek) {
+        case 1: if(getWeek()) {
+            week.textContent = 'Сегодня понедельник🔺'
+        }
+        else {
+            week.textContent = 'Сегодня понедельник🔻'
+        }
+        break
+
+        case 2:if(getWeek()) {
+            week.textContent = 'Сегодня вторник🔺'
+        }
+        else {
+            week.textContent = 'Сегодня вторник🔻'
+        }
+        break
+
+        case 3:if(getWeek()) {
+            week.textContent = 'Сегодня среда🔺'
+        }
+        else {
+            week.textContent = 'Сегодня среда🔻'
+        }
+        break
+
+        case 4:if(getWeek()) {
+            week.textContent = 'Сегодня четверг🔺'
+        }
+        else {
+            week.textContent = 'Сегодня четверг🔻'
+        }
+        break
+
+        case 5:if(getWeek()) {
+            week.textContent = 'Сегодня пятница🔺'
+        }
+        else {
+            week.textContent = 'Сегодня пятница🔻'
+        }
+        break
+
+        case 6:if(getWeek()) {
+            week.textContent = 'Сегодня суббота🔺'
+        }
+        else {
+            week.textContent = 'Сегодня суббота🔻'
+        }
+        break
+        
+        case 0: if(getWeek()) {
+            week.textContent = 'Сегодня воскресенье🔺'
+        }
+        else {
+            week.textContent = 'Сегодня воскресенье🔻'
+        }
+        break
+    }
+}
+
+ShowWeek()
 
 getWeek(now)
 
 tuesday.classList.add('bg-success')
 thursday.classList.add('bg-success')
 
-
+// Делает только ту неделю зеленой, которая сейчас(нижняя или верхняя)
 if(isUpper === true) {
 
     mondayUpper.classList.add('bg-success')
@@ -64,9 +141,7 @@ else {
     fridayDown.classList.add('bg-success')
 }
 
-// Счетчик часов и минут до начала пары
-// Тщательно проверить этот участок кода, так как возможны баги
-
+// Счечик минут и часов до начало пары
 setInterval(() => {
 
     let timetable = new Date()
@@ -78,40 +153,45 @@ setInterval(() => {
     let timeFound = true
 
     if(currentHour < 8){
-        remainH = 8 - currentHour
-        remainM = 0 - currentMinute
+        remainH = 8 - currentHour + ' ч.'
+        remainM = 0 - currentMinute + ' мин.'
+        text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
         minutes.textContent = remainM
     }
 
     else if(currentHour < 9 || (currentHour === 9 && currentMinute === 55)) {
-        remainH = 9 - currentHour
-        remainM = 55 - currentMinute
+        remainH = 9 - currentHour + ' ч.'
+        remainM = 55 - currentMinute + ' мин.'
+        text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
         minutes.textContent = remainM
     }
 
     else if(currentHour < 11 || (currentHour === 11 && currentMinute === 50)) {
-        remainH = 11 - currentHour
-        remainM = 50 - currentMinute
+        remainH = 11 - currentHour + ' ч.'
+        remainM = 50 - currentMinute + ' мин.'
+        text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
         minutes.textContent = remainM
     }
 
     else if(currentHour < 13 || (currentHour === 13 && currentMinute === 45)) {
-        remainH = 13 - currentHour
-        remainM = 45 - currentMinute
+        remainH = 13 - currentHour + ' ч.'
+        remainM = 45 - currentMinute + ' мин.'
+        text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
         minutes.textContent = remainM
     }
 
     else if(currentHour < 15 || (currentHour === 15 && currentMinute === 30)) {
-        remainH = 15 - currentHour
-        remainM = 30 - currentMinute
+        remainH = 15 - currentHour + ' ч.'
+        remainM = 30 - currentMinute + ' мин.'
+        text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
         minutes.textContent = remainM
@@ -123,6 +203,7 @@ setInterval(() => {
         timeFound = false
     }
 
+    // чтобы всё корректно отображалось
     if(timeFound) {
         if(remainM < 0) {
             remainH = remainH -1
@@ -139,12 +220,7 @@ setInterval(() => {
     }
 }, 1000);
 
-const mondayW = 1
-const tuesdayW = 2
-const wednesdayW = 3
-const thursdayW = 4
-const fridayW = 5
-
+// Эта функция меняет цвета на какой-либо день недели на красный, чтобы показать текущий
 function changeWeek() {
 if(valueWeek === mondayW) {
     if(isUpper) {
@@ -208,5 +284,3 @@ else {
 }
 
 changeWeek()
-
-// добавить вывод текущего дня неделиж и проверить датчик, который выводит сколько времени осталось до пар
