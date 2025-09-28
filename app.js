@@ -153,8 +153,8 @@ setInterval(() => {
     let timeFound = true
 
     if(currentHour < 8){
-        remainH = 8 - currentHour + ' ч.'
-        remainM = 0 - currentMinute + ' мин.'
+        remainH = 8 - currentHour
+        remainM = 0 - currentMinute
         text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
@@ -162,8 +162,8 @@ setInterval(() => {
     }
 
     else if(currentHour < 9 || (currentHour === 9 && currentMinute === 55)) {
-        remainH = 9 - currentHour + ' ч.'
-        remainM = 55 - currentMinute + ' мин.'
+        remainH = 9 - currentHour
+        remainM = 55 - currentMinute
         text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
@@ -171,8 +171,8 @@ setInterval(() => {
     }
 
     else if(currentHour < 11 || (currentHour === 11 && currentMinute === 50)) {
-        remainH = 11 - currentHour + ' ч.'
-        remainM = 50 - currentMinute + ' мин.'
+        remainH = 11 - currentHour
+        remainM = 50 - currentMinute
         text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
@@ -180,8 +180,8 @@ setInterval(() => {
     }
 
     else if(currentHour < 13 || (currentHour === 13 && currentMinute === 45)) {
-        remainH = 13 - currentHour + ' ч.'
-        remainM = 45 - currentMinute + ' мин.'
+        remainH = 13 - currentHour
+        remainM = 45 - currentMinute
         text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
@@ -189,8 +189,8 @@ setInterval(() => {
     }
 
     else if(currentHour < 15 || (currentHour === 15 && currentMinute === 30)) {
-        remainH = 15 - currentHour + ' ч.'
-        remainM = 30 - currentMinute + ' мин.'
+        remainH = 15 - currentHour
+        remainM = 30 - currentMinute
         text.textContent = 'До начала следующей пары:'
 
         hours.textContent = remainH
@@ -206,7 +206,7 @@ setInterval(() => {
     // чтобы всё корректно отображалось
     if(timeFound) {
         if(remainM < 0) {
-            remainH = remainH -1
+            remainH = remainH - 1
             remainM = remainM + 60
         }
         
@@ -218,7 +218,7 @@ setInterval(() => {
         hours.textContent = remainH
         minutes.textContent = remainM
     }
-}, 1000);
+}, 1000)
 
 // Эта функция меняет цвета на какой-либо день недели на красный, чтобы показать текущий
 function changeWeek() {
