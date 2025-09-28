@@ -17,6 +17,9 @@ const week = document.getElementById('week')
 // const para = document.getElementById('para')
 const text = document.getElementById('text')
 
+const textH = document.getElementById('textH')
+const textM = document.getElementById('textM')
+
 const hours = document.getElementById('hours')
 const minutes = document.getElementById('minutes')
 
@@ -200,6 +203,8 @@ setInterval(() => {
     else {
         hours.textContent = "Сегодня пар больше нет"
         minutes.textContent = "🥳 Отдыхайте!"
+        textH.remove()
+        textM.remove()
         timeFound = false
     }
 
