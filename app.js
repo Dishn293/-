@@ -161,7 +161,7 @@ setInterval(() => {
         minutes.textContent = remainM
     }
 
-    else if(currentHour < 9 || (currentHour === 9 && currentMinute === 55)) {
+    else if(currentHour <= 9 || (currentHour === 9 && currentMinute === 55)) {
         remainH = 9 - currentHour
         remainM = 55 - currentMinute
         text.textContent = 'До начала следующей пары:'
