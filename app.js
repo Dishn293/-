@@ -188,7 +188,7 @@ setInterval(() => {
         minutes.textContent = remainM
     }
 
-    else if(currentHour < 15 || (currentHour === 15 && currentMinute === 30)) {
+    else if(currentHour <= 15 || (currentHour === 15 && currentMinute === 30)) {
         remainH = 15 - currentHour
         remainM = 30 - currentMinute
         text.textContent = 'До начала следующей пары:'
@@ -282,5 +282,6 @@ else {
 }
 
 }
+
 
 changeWeek()
