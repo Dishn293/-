@@ -145,85 +145,55 @@ else {
 }
 
 // Счечик минут и часов до начало пары
+// Определяем расписание (в минутах от полуночи)
+const schedule = [
+    8 * 60,      // 08:00
+    9 * 60 + 55, // 09:55
+    11 * 60 + 50, // 11:50
+    13 * 60 + 45, // 13:45
+    15 * 60 + 30  // 15:30
+];
+
 setInterval(() => {
+    let now = new Date();
+    // Текущее время в минутах от полуночи
+    let currentTotalMinutes = now.getHours() * 60 + now.getMinutes();
+    
+    let nextPairTime = -1;
 
-    let timetable = new Date()
-    let currentHour = timetable.getHours()
-    let currentMinute = timetable.getMinutes()
-
-    let remainH
-    let remainM
-    let timeFound = true
-
-    if(currentHour < 8){
-        remainH = 8 - currentHour
-        remainM = 0 - currentMinute
-        text.textContent = 'До начала следующей пары:'
-
-        hours.textContent = remainH
-        minutes.textContent = remainM
-    }
-
-    else if(currentHour <= 9 || (currentHour === 9 && currentMinute === 55)) {
-        remainH = 9 - currentHour
-        remainM = 55 - currentMinute
-        text.textContent = 'До начала следующей пары:'
-
-        hours.textContent = remainH
-        minutes.textContent = remainM
-    }
-
-    else if(currentHour < 11 || (currentHour === 11 && currentMinute === 50)) {
-        remainH = 11 - currentHour
-        remainM = 50 - currentMinute
-        text.textContent = 'До начала следующей пары:'
-
-        hours.textContent = remainH
-        minutes.textContent = remainM
-    }
-
-    else if(currentHour < 13 || (currentHour === 13 && currentMinute === 45)) {
-        remainH = 13 - currentHour
-        remainM = 45 - currentMinute
-        text.textContent = 'До начала следующей пары:'
-
-        hours.textContent = remainH
-        minutes.textContent = remainM
-    }
-
-    else if(currentHour <= 15 || (currentHour === 15 && currentMinute === 30)) {
-        remainH = 15 - currentHour
-        remainM = 30 - currentMinute
-        text.textContent = 'До начала следующей пары:'
-
-        hours.textContent = remainH
-        minutes.textContent = remainM
-    }
-
-    else {
-        hours.textContent = "Сегодня пар больше нет"
-        minutes.textContent = "🥳 Отдыхайте!"
-        textH.remove()
-        textM.remove()
-        timeFound = false
-    }
-
-    // чтобы всё корректно отображалось
-    if(timeFound) {
-        if(remainM < 0) {
-            remainH = remainH - 1
-            remainM = remainM + 60
+    // Находим ближайшее время начала пары, которое еще не прошло
+    for (const time of schedule) {
+        if (time > currentTotalMinutes) {
+            nextPairTime = time;
+            break; 
         }
+    }
+
+    if (nextPairTime !== -1) {
+        // Расчет оставшегося времени
+        let remainingMinutes = nextPairTime - currentTotalMinutes;
         
-        else if (remainM >= 60) {
-            remainH = remainH + Math.floor(remainM / 60)
-            remainM = remainM % 60
-        }
+        let remainH = Math.floor(remainingMinutes / 60);
+        let remainM = remainingMinutes % 60;
 
-        hours.textContent = remainH
-        minutes.textContent = remainM
+        // Обновление DOM
+        text.textContent = 'До начала следующей пары:';
+        hours.textContent = remainH;
+        minutes.textContent = remainM;
+        // Убедитесь, что textH и textM не удалены, если они используются для подписей "ч" и "мин"
+        // Если они были удалены в 'else', их нужно вернуть:
+        if (typeof textH !== 'undefined' && textH.style.display === 'none') textH.style.display = '';
+        if (typeof textM !== 'undefined' && textM.style.display === 'none') textM.style.display = '';
+
+    } else {
+        // Пар сегодня больше нет
+        hours.textContent = "Сегодня пар больше нет";
+        minutes.textContent = "🥳 Отдыхайте!";
+        // Предполагается, что textH и textM - это элементы для подписей "час" и "минута"
+        if (typeof textH !== 'undefined') textH.style.display = 'none'; // Скрываем подписи
+        if (typeof textM !== 'undefined') textM.style.display = 'none'; // Скрываем подписи
     }
-}, 1000)
+}, 1000);
 
 // Эта функция меняет цвета на какой-либо день недели на красный, чтобы показать текущий
 function changeWeek() {
