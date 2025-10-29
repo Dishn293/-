@@ -2,15 +2,16 @@
 const mondayUpper = document.getElementById('mondayUpper')
 const mondayDown = document.getElementById('mondayDown')
 
-const tuesday = document.getElementById('tuesday')
+const tuesdayUpper = document.getElementById('tuesdayUpper')
+const tuesdayDown = document.getElementById('tuesdayDown')
 
 const wednesdayUpper = document.getElementById('wednesdayUpper')
 const wednesdayDown = document.getElementById('wednesdayDown')
 
-const thursday = document.getElementById('thursday')
+const thursdayUpper = document.getElementById('thursdayUpper')
+const thursdayDown = document.getElementById('thursdayDown')
 
-const fridayUpper = document.getElementById('fridayUpper')
-const fridayDown = document.getElementById('fridayDown')
+const friday = document.getElementById('friday')
 
 // Для изменения текста
 const week = document.getElementById('week')
@@ -125,23 +126,30 @@ if(isUpper === true) {
 
     mondayUpper.classList.add('bg-success')
     mondayDown.classList.add('opacity-50')
+
+    tuesdayUpper.classList.add('bg-success')
+    tuesdayDown.classList.add('opacity-50')
     
     wednesdayUpper.classList.add('bg-success')
     wednesdayDown.classList.add('opacity-50')
 
-    fridayUpper.classList.add('bg-success')
-    fridayDown.classList.add('opacity-50')
+    thursdayUpper.classList.add('bg-success')
+    thursdayDown.classList.add('opacity-50')
+
 }
 else {
 
     mondayUpper.classList.add('opacity-50')
     mondayDown.classList.add('bg-success')
+
+    tuesdayUpper.classList.add('opacity-50')
+    tuesdayDown.classList.add('bg-success')
     
     wednesdayUpper.classList.add('opacity-50')
     wednesdayDown.classList.add('bg-success')
 
-    fridayUpper.classList.add('opacity-50')
-    fridayDown.classList.add('bg-success')
+    thursdayUpper.classList.add('opacity-50')
+    thursdayDown.classList.add('bg-success')
 }
 
 // Счечик минут и часов до начало пары
@@ -210,12 +218,12 @@ if(valueWeek === mondayW) {
 
 else if(valueWeek === tuesdayW) {
     if(isUpper) {
-        tuesday.classList.replace('bg-success', 'bg-danger')
-        tuesday.classList.remove('opacity-50')
+        tuesdayUpper.classList.replace('bg-success', 'bg-danger')
+        tuesdayUpper.classList.remove('opacity-50')
     }
     else {
-        tuesday.classList.replace('bg-success', 'bg-danger')
-        tuesday.classList.remove('opacity-50')
+        tuesdayDown.classList.replace('bg-success', 'bg-danger')
+        tuesdayDown.classList.remove('opacity-50')
     }
 }
 
@@ -232,23 +240,23 @@ else if(valueWeek === wednesdayW) {
 
 else if(valueWeek === thursdayW) {
     if(isUpper) {
-        thursday.classList.replace('bg-success', 'bg-danger')
-        thursday.classList.remove('opacity-50')
+        thursdayUpper.classList.replace('bg-success', 'bg-danger')
+        thursdayUpper.classList.remove('opacity-50')
     }
     else {
-        thursday.classList.replace('bg-success', 'bg-danger')
-        thursday.classList.remove('opacity-50')
+        thursdayDown.classList.replace('bg-success', 'bg-danger')
+        thursdayDown.classList.remove('opacity-50')
     }
 }
 
 else if(valueWeek === fridayW) {
     if(isUpper) {
-        fridayUpper.classList.replace('bg-success', 'bg-danger')
-        fridayUpper.classList.remove('opacity-50')
+        friday.classList.replace('bg-success', 'bg-danger')
+        friday.classList.remove('opacity-50')
     }
     else {
-        fridayDown.classList.replace('bg-success', 'bg-danger')
-        fridayDown.classList.remove('opacity-50')
+        friday.classList.replace('bg-success', 'bg-danger')
+        friday.classList.remove('opacity-50')
     }
 }
 
